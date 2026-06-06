@@ -144,6 +144,219 @@
   </div>
 </div></section>
 
+<section id="diagrams">
+<style>
+  #diagrams .diag-pair{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:32px}
+  #diagrams .diag-block{background:var(--ground-2);border:1px solid var(--line);border-radius:12px;padding:22px 20px 18px}
+  #diagrams .diag-label{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--brass);font-weight:600;margin-bottom:12px;font-family:'Spectral'}
+  @media(max-width:760px){#diagrams .diag-pair{grid-template-columns:1fr}}
+</style>
+<div class="wrap">
+  <div class="kicker">How it comes to be &middot; where it lives</div>
+  <h2>Two views of the machine.</h2>
+  <p class="body">The first diagram traces how a single studio-control command unfolds &mdash; from MCP or Stream Deck trigger through per-hardware dispatch to the verification pass that separates closed-loop confirmation from open-loop hypothesis. The second shows where studio-control sits in the portfolio: which products govern it, what it touches in the physical world, and the Intent loop that holds it accountable.</p>
+
+  <div class="diag-pair">
+
+    <!-- DIAGRAM 1: FLOW — How it comes to be -->
+    <div class="diag-block">
+      <div class="diag-label">How it comes to be</div>
+      <svg viewBox="0 0 480 310" width="100%" height="auto" style="max-width:480px;display:block" xmlns="http://www.w3.org/2000/svg" aria-label="Flow diagram: how a studio-control command runs">
+        <defs>
+          <linearGradient id="sc-flow" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#E8772B"/>
+            <stop offset="100%" stop-color="#7E8A98"/>
+          </linearGradient>
+          <linearGradient id="sc-closed" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#7E8A98"/>
+            <stop offset="100%" stop-color="#AAB4C0"/>
+          </linearGradient>
+          <linearGradient id="sc-open" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#E8772B"/>
+            <stop offset="100%" stop-color="#F2A24A"/>
+          </linearGradient>
+          <marker id="sc-arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#C9A45C" opacity="0.75"/>
+          </marker>
+          <marker id="sc-arr-steel" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#7E8A98" opacity="0.75"/>
+          </marker>
+          <marker id="sc-arr-molten" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#E8772B" opacity="0.75"/>
+          </marker>
+        </defs>
+
+        <!-- Node 1: Command in (MCP / Stream Deck) -->
+        <rect x="8" y="116" width="76" height="40" rx="7" fill="#2b2219" stroke="#C9A45C" stroke-width="1.2"/>
+        <text x="46" y="130" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="9" fill="#ECE3D4">MCP /</text>
+        <text x="46" y="142" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="9" fill="#ECE3D4">Stream Deck</text>
+
+        <!-- Arrow 1→2 -->
+        <line x1="84" y1="136" x2="102" y2="136" stroke="#C9A45C" stroke-width="1.4" marker-end="url(#sc-arr)"/>
+
+        <!-- Node 2: Command dispatch -->
+        <rect x="104" y="116" width="76" height="40" rx="7" fill="#2b2219" stroke="#C9A45C" stroke-width="1.2"/>
+        <text x="142" y="130" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="9" fill="#ECE3D4">dispatch</text>
+        <text x="142" y="142" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="9" fill="#ECE3D4">per-hardware</text>
+
+        <!-- Arrow 2→3 -->
+        <line x1="180" y1="136" x2="198" y2="136" stroke="#C9A45C" stroke-width="1.4" marker-end="url(#sc-arr)"/>
+
+        <!-- Node 3: Hardware targets (stacked) -->
+        <rect x="200" y="80" width="76" height="26" rx="5" fill="#211a13" stroke="#E8772B" stroke-width="1.2"/>
+        <text x="238" y="95" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#F2A24A">Wave Link</text>
+
+        <rect x="200" y="110" width="76" height="26" rx="5" fill="#211a13" stroke="#E8772B" stroke-width="1.5"/>
+        <text x="238" y="125" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#F2A24A">Hue / Govee</text>
+
+        <rect x="200" y="140" width="76" height="26" rx="5" fill="#211a13" stroke="#E8772B" stroke-width="1.2"/>
+        <text x="238" y="155" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#F2A24A">OBS</text>
+
+        <rect x="200" y="170" width="76" height="26" rx="5" fill="#211a13" stroke="#9A7F4E" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="238" y="185" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#9A7F4E">Teams / OBSBOT</text>
+
+        <!-- parallel label -->
+        <text x="238" y="74" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#9A7F4E" font-style="italic">parallel dispatch</text>
+
+        <!-- Arrows hardware→verify -->
+        <line x1="276" y1="93" x2="308" y2="120" stroke="#E8772B" stroke-width="1" stroke-opacity="0.7" marker-end="url(#sc-arr)"/>
+        <line x1="276" y1="123" x2="308" y2="132" stroke="#E8772B" stroke-width="1" stroke-opacity="0.9" marker-end="url(#sc-arr)"/>
+        <line x1="276" y1="153" x2="308" y2="144" stroke="#E8772B" stroke-width="1" stroke-opacity="0.7" marker-end="url(#sc-arr)"/>
+        <!-- dashed arrow from open-loop -->
+        <line x1="276" y1="183" x2="308" y2="170" stroke="#9A7F4E" stroke-width="1" stroke-opacity="0.6" stroke-dasharray="4,3" marker-end="url(#sc-arr)"/>
+
+        <!-- Node 4: Verify against reality -->
+        <rect x="310" y="116" width="82" height="40" rx="7" fill="#2b2219" stroke="#C9A45C" stroke-width="1.2"/>
+        <text x="351" y="130" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="9" fill="#ECE3D4">verify</text>
+        <text x="351" y="141" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#B3A890">against reality</text>
+        <text x="351" y="151" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#85795F">SLO &lt; 1000ms</text>
+
+        <!-- Arrow 4→split -->
+        <line x1="392" y1="136" x2="406" y2="136" stroke="#C9A45C" stroke-width="1.4"/>
+
+        <!-- Split fork -->
+        <line x1="406" y1="136" x2="406" y2="96" stroke="#7E8A98" stroke-width="1" stroke-opacity="0.7"/>
+        <line x1="406" y1="136" x2="406" y2="176" stroke="#E8772B" stroke-width="1" stroke-opacity="0.7"/>
+
+        <!-- Channel A: closed-loop ACK -->
+        <line x1="406" y1="96" x2="422" y2="96" stroke="#7E8A98" stroke-width="1.2" marker-end="url(#sc-arr-steel)"/>
+        <rect x="424" y="79" width="50" height="34" rx="6" fill="#17120e" stroke="#5B6573" stroke-width="1.2"/>
+        <text x="449" y="93" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#AAB4C0">closed-loop</text>
+        <text x="449" y="104" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#AAB4C0">confirmed</text>
+
+        <!-- Channel B: open-loop signal -->
+        <line x1="406" y1="176" x2="422" y2="176" stroke="#E8772B" stroke-width="1.2" marker-end="url(#sc-arr-molten)"/>
+        <rect x="424" y="159" width="50" height="34" rx="6" fill="#17120e" stroke="#E8772B" stroke-width="1.2"/>
+        <text x="449" y="173" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#F2A24A">open-loop</text>
+        <text x="449" y="184" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#F2A24A">surfaced</text>
+
+        <!-- "never hidden" label -->
+        <text x="449" y="227" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#9A7F4E" font-style="italic">never hidden</text>
+
+        <!-- hypothesis badge on open-loop channel -->
+        <rect x="428" y="197" width="42" height="14" rx="4" fill="rgba(232,119,43,0.12)" stroke="#9A7F4E" stroke-width="0.8"/>
+        <text x="449" y="207" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#C9A45C">hypothesis</text>
+
+        <!-- Bottom label -->
+        <text x="240" y="296" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#85795F">Trigger &rarr; Dispatch &rarr; Hardware &rarr; Verify &rarr; Confirmed or Surfaced</text>
+      </svg>
+    </div>
+
+    <!-- DIAGRAM 2: ARCHITECTURE — Where it lives -->
+    <div class="diag-block">
+      <div class="diag-label">Where it lives</div>
+      <svg viewBox="0 0 480 310" width="100%" height="auto" style="max-width:480px;display:block" xmlns="http://www.w3.org/2000/svg" aria-label="Architecture diagram: studio-control position in the portfolio">
+        <defs>
+          <linearGradient id="ag-sc" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#E8772B" stop-opacity="0.25"/>
+            <stop offset="100%" stop-color="#2b2219" stop-opacity="0.9"/>
+          </linearGradient>
+          <linearGradient id="ag-hw" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#C9A45C" stop-opacity="0.12"/>
+            <stop offset="100%" stop-color="#17120e" stop-opacity="0.95"/>
+          </linearGradient>
+          <marker id="aarr-sc" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#C9A45C" opacity="0.8"/>
+          </marker>
+          <marker id="aarr-sc-out" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#E8772B" opacity="0.8"/>
+          </marker>
+          <marker id="aarr-sc-hw" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#9A7F4E" opacity="0.7"/>
+          </marker>
+        </defs>
+
+        <!-- Intent loop veil — faint background rectangle -->
+        <rect x="10" y="14" width="460" height="254" rx="12" fill="none" stroke="#3a2f23" stroke-width="1.5" stroke-dasharray="5,4"/>
+        <text x="26" y="28" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#3a2f23" font-style="italic">Intent loop &mdash; Notice &middot; Spec &middot; Execute &middot; Observe</text>
+
+        <!-- Intent box — top left (governance) -->
+        <rect x="24" y="42" width="90" height="46" rx="8" fill="#211a13" stroke="#9A7F4E" stroke-width="1"/>
+        <text x="69" y="62" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="11" font-weight="700" fill="#C9A45C">Intent</text>
+        <text x="69" y="76" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#85795F">signals · specs</text>
+        <text x="69" y="87" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#85795F">decisions</text>
+
+        <!-- Witness box — left mid (observability) -->
+        <rect x="24" y="104" width="90" height="46" rx="8" fill="#211a13" stroke="#9A7F4E" stroke-width="1"/>
+        <text x="69" y="124" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="11" font-weight="700" fill="#C9A45C">Witness</text>
+        <text x="69" y="138" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#85795F">OTLP events</text>
+        <text x="69" y="149" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#85795F">JSONL fallback</text>
+
+        <!-- studio-control box — centre -->
+        <rect x="162" y="72" width="148" height="152" rx="10" fill="url(#ag-sc)" stroke="#E8772B" stroke-width="1.8"/>
+        <text x="236" y="100" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="13" font-weight="800" fill="#ECE3D4">studio-control</text>
+        <line x1="180" y1="109" x2="292" y2="109" stroke="#3a2f23" stroke-width="0.8"/>
+        <text x="236" y="124" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#B3A890">physical-world</text>
+        <text x="236" y="136" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#B3A890">boundary</text>
+        <!-- sw-is-hypothesis badge -->
+        <rect x="177" y="150" width="118" height="16" rx="5" fill="rgba(232,119,43,0.10)" stroke="#9A7F4E" stroke-width="0.8"/>
+        <text x="236" y="161" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#C9A45C">software state is a hypothesis</text>
+        <!-- two classes -->
+        <text x="236" y="185" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#85795F">closed-loop (Wave Link, Hue, OBS)</text>
+        <text x="236" y="197" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#85795F">open-loop (Teams, OBSBOT)</text>
+        <!-- only hw-crossing product badge -->
+        <rect x="177" y="208" width="118" height="13" rx="4" fill="rgba(201,164,92,0.08)" stroke="#3a2f23" stroke-width="0.8"/>
+        <text x="236" y="218" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#85795F" font-style="italic">only portfolio product crossing hardware line</text>
+
+        <!-- Physical world box — right -->
+        <rect x="358" y="60" width="98" height="166" rx="10" fill="url(#ag-hw)" stroke="#C9A45C" stroke-width="1.3"/>
+        <text x="407" y="82" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="11" font-weight="700" fill="#C9A45C">Hardware</text>
+        <line x1="372" y1="90" x2="444" y2="90" stroke="#3a2f23" stroke-width="0.8"/>
+        <text x="407" y="106" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#B3A890">Wave Link</text>
+        <text x="407" y="120" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#B3A890">Hue / Govee</text>
+        <text x="407" y="134" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#B3A890">OBS</text>
+        <text x="407" y="148" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#9A7F4E">Teams *</text>
+        <text x="407" y="162" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#9A7F4E">OBSBOT *</text>
+        <!-- open-loop footnote -->
+        <text x="407" y="212" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#85795F" font-style="italic">* open-loop</text>
+
+        <!-- Intent → studio-control arrow (governs) -->
+        <line x1="114" y1="65" x2="160" y2="110" stroke="#9A7F4E" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#aarr-sc)"/>
+        <text x="132" y="82" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#9A7F4E" font-style="italic">governs</text>
+
+        <!-- Witness → studio-control arrow (observes) -->
+        <line x1="114" y1="127" x2="160" y2="140" stroke="#9A7F4E" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#aarr-sc)"/>
+        <text x="132" y="138" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#9A7F4E" font-style="italic">observes</text>
+
+        <!-- studio-control → Hardware arrow (commands) -->
+        <line x1="310" y1="148" x2="356" y2="148" stroke="#E8772B" stroke-width="1.6" marker-end="url(#aarr-sc-out)"/>
+        <text x="333" y="142" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#9A7F4E" font-style="italic">commands</text>
+
+        <!-- Hardware → studio-control feedback arrow (ACK) -->
+        <path d="M356,162 Q336,178 310,165" fill="none" stroke="#7E8A98" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#aarr-sc)"/>
+        <text x="330" y="180" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#7E8A98" font-style="italic">ACK / gap</text>
+
+        <!-- Intent loop corners cycle arrow -->
+        <path d="M460,40 Q470,149 460,258" fill="none" stroke="#3a2f23" stroke-width="1" stroke-dasharray="4,5" marker-end="url(#aarr-sc)"/>
+
+        <!-- Bottom label -->
+        <text x="237" y="296" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#85795F">Intent (governs) &middot; Witness (observes) &middot; studio-control &rarr; Hardware (ACK or gap)</text>
+      </svg>
+    </div>
+
+  </div>
+</div></section>
+
 <section id="veil" class="veil-section"><div class="wrap">
   <div class="kicker">Behind the veil</div>
   <h2>How studio-control was forged.</h2>
