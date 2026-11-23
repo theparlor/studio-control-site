@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>studio-control — one control surface for your studio hardware</title>
-<meta name="description" content="Wave Link, Hue, Govee, OBS, Teams, OBSBOT — unified under one control surface. Software state is a hypothesis; the physical world is the fact.">
+<title>Studio control surface: one place to run your studio hardware</title>
+<meta name="description" content="Wave Link, Hue, Govee, OBS, Teams, OBSBOT, unified under one control surface. Software state is a hypothesis; the physical world is the fact.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;0,900;1,500;1,700&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -76,7 +76,7 @@
   .ch.assert .t{color:var(--steel-light)} .ch.dissent .t{color:var(--ember)}
   .ch p{font-size:14px;color:var(--bone-dim);line-height:1.55;font-weight:300}
 
-  /* veil — warm cools to system plane */
+  /* veil: warm cools to system plane */
   .veil-section{border-top:1px solid var(--line);background:linear-gradient(180deg, var(--ground) 0%, #141821 100%)}
   .veil-section .kicker{color:var(--steel-light)}
   .veil-line{margin:24px 0;height:2px;background:linear-gradient(90deg,var(--molten) 0%, var(--brass) 30%, var(--steel) 70%, var(--steel-deep) 100%);border-radius:2px}
@@ -97,26 +97,26 @@
 </head>
 <body>
 
-<div class="ptbanner"><b>v0 · pressure-test</b> &nbsp;·&nbsp; not public, not indexed &nbsp;·&nbsp; built, used, still being challenged</div>
+<div class="ptbanner"><b>v0 · pressure-test</b> &nbsp;·&nbsp; unlisted: public page, search engines asked to stay away &nbsp;·&nbsp; still being challenged</div>
 
 <nav class="top"><div class="wrap">
   <span class="brand"><span class="mark">&#9874;</span> The Parlor <span class="sep">/</span> <span class="pname">studio-control</span></span>
   <span class="spacer"></span>
-  <a class="nl" href="https://theparlor.github.io/portfolio-site/">&larr; All products</a>
-  <a class="veil" href="#veil">Behind the veil &rarr;</a>
+  <a class="nl" href="https://theparlor.github.io/portfolio-site/">All products</a>
+  <a class="veil" href="#veil">Behind the veil</a>
 </div></nav>
 
 <header class="hero"><div class="wrap">
   <div class="eyebrow">In the world</div>
   <h1 class="title">Your studio hardware, <em>verified</em>.</h1>
-  <p class="lede">studio-control unifies Wave Link, Philips Hue, Govee, OBS, Teams, and OBSBOT under one control surface. Its defining principle: <strong>software state is a hypothesis</strong> &mdash; the physical world is the fact. Every command closes the loop or tells you it couldn't.</p>
+  <p class="lede">studio-control unifies Wave Link, Philips Hue, Govee, OBS, Teams, and OBSBOT under one control surface. Its defining principle: <strong>software state is a hypothesis</strong>; the physical world is the fact. Every command closes the loop or tells you it couldn't.</p>
   <div class="forge-rule"></div>
 </div></header>
 
 <section><div class="wrap">
   <div class="kicker">The problem it solves</div>
   <h2>A mute toggle that silently fails during a client call is a career risk.</h2>
-  <p class="body">Six pieces of hardware, six vendor APIs &mdash; some public, some reverse-engineered, some open-loop by design. The moment you add a Stream Deck button, you've made a promise to yourself that the rack will do what the button says. studio-control exists to keep that promise: it tracks state, detects divergence, and surfaces the gap before it surfaces on your client's face.</p>
+  <p class="body">Six pieces of hardware, six vendor APIs: some public, some reverse-engineered, some open-loop by design. The moment you add a Stream Deck button, you've made a promise to yourself that the rack will do what the button says. studio-control exists to keep that promise: it tracks state, detects divergence, and surfaces the gap before it surfaces on your client's face.</p>
   <div class="pull">The question isn't "did the command send?" It's "did the world change?"</div>
 </div></section>
 
@@ -125,8 +125,8 @@
   <h2>One surface. Six hardware layers.</h2>
   <div class="steps">
     <div class="step"><div class="n">1</div><h3>Audio &amp; mute</h3><p>Wave Link WebSocket (channel-level mute, state-change ACK, mismatch detection). OBSBOT Tiny2 and Anker speakerphones in backup roles. A mute you can trust.</p></div>
-    <div class="step"><div class="n">2</div><h3>Scene &amp; light</h3><p>OBS scene switching via WebSocket. Philips Hue CLIP v2 and Govee UDP LAN for lighting scenes — verified against the bulb, not just the API response.</p></div>
-    <div class="step"><div class="n">3</div><h3>Meeting surfaces</h3><p>Teams mute via osascript injection (open-loop by necessity — surfaced, not hidden). OBSBOT camera control. Every open-loop call emits a forensic signal so you know what was assumed.</p></div>
+    <div class="step"><div class="n">2</div><h3>Scene &amp; light</h3><p>OBS scene switching via WebSocket. Philips Hue CLIP v2 and Govee UDP LAN for lighting scenes, verified against the bulb, not just the API response.</p></div>
+    <div class="step"><div class="n">3</div><h3>Meeting surfaces</h3><p>Teams mute via osascript injection (open-loop by necessity; surfaced, not hidden). OBSBOT camera control. Every open-loop call emits a forensic signal so you know what was assumed.</p></div>
   </div>
 </div></section>
 
@@ -136,10 +136,10 @@
   <div class="law">
     <div class="role">The rule the whole product is built around</div>
     <h3>Software state is a hypothesis. The rack is the fact.</h3>
-    <p>Most control software assumes the command landed. studio-control refuses that assumption. Every API call that can return a verification signal does &mdash; and when the ACK doesn't come back within the SLO window, a signal fires. For the surfaces that <strong>cannot be verified</strong> (Teams osascript, OBSBOT keyboard injection), the open-loop nature is treated as a known architectural gap, surfaced to the operator verbatim, never papered over. The product holds two classes of command explicitly:</p>
+    <p>Most control software assumes the command landed. studio-control refuses that assumption. Every API call that can return a verification signal does, and when the ACK doesn't come back within the SLO window, a signal fires. For the surfaces that <strong>cannot be verified</strong> (Teams osascript, OBSBOT keyboard injection), the open-loop nature is treated as a known architectural gap, surfaced to the operator verbatim, never papered over. The product holds two classes of command explicitly:</p>
     <div class="two-ch">
-      <div class="ch assert"><div class="t">Closed-loop commands</div><p>Wave Link, Hue, Govee, OBS &mdash; state is confirmed by the device. Divergence emits a signal. You know when it worked.</p></div>
-      <div class="ch dissent"><div class="t">Open-loop commands</div><p>Teams, OBSBOT &mdash; injection-only, unverifiable. Treated as a hypothesis, labeled as such, never silently assumed to have landed.</p></div>
+      <div class="ch assert"><div class="t">Closed-loop commands</div><p>Wave Link, Hue, Govee, OBS: state is confirmed by the device. Divergence emits a signal. You know when it worked.</p></div>
+      <div class="ch dissent"><div class="t">Open-loop commands</div><p>Teams, OBSBOT: injection-only, unverifiable. Treated as a hypothesis, labeled as such, never silently assumed to have landed.</p></div>
     </div>
   </div>
 </div></section>
@@ -154,11 +154,11 @@
 <div class="wrap">
   <div class="kicker">How it comes to be &middot; where it lives</div>
   <h2>Two views of the machine.</h2>
-  <p class="body">The first diagram traces how a single studio-control command unfolds &mdash; from MCP or Stream Deck trigger through per-hardware dispatch to the verification pass that separates closed-loop confirmation from open-loop hypothesis. The second shows where studio-control sits in the portfolio: which products govern it, what it touches in the physical world, and the Intent loop that holds it accountable.</p>
+  <p class="body">The first diagram traces how a single studio-control command unfolds, from MCP or Stream Deck trigger through per-hardware dispatch to the verification pass that separates closed-loop confirmation from open-loop hypothesis. The second shows where studio-control sits in the portfolio: which products govern it, what it touches in the physical world, and the Intent loop that holds it accountable.</p>
 
   <div class="diag-pair">
 
-    <!-- DIAGRAM 1: FLOW — How it comes to be -->
+    <!-- DIAGRAM 1: FLOW: How it comes to be -->
     <div class="diag-block">
       <div class="diag-label">How it comes to be</div>
       <svg viewBox="0 0 480 310" width="100%" height="auto" style="max-width:480px;display:block" xmlns="http://www.w3.org/2000/svg" aria-label="Flow diagram: how a studio-control command runs">
@@ -191,7 +191,7 @@
         <text x="46" y="130" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="9" fill="#ECE3D4">MCP /</text>
         <text x="46" y="142" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="9" fill="#ECE3D4">Stream Deck</text>
 
-        <!-- Arrow 1→2 -->
+        <!-- Arrow 1 to 2 -->
         <line x1="84" y1="136" x2="102" y2="136" stroke="#C9A45C" stroke-width="1.4" marker-end="url(#sc-arr)"/>
 
         <!-- Node 2: Command dispatch -->
@@ -199,7 +199,7 @@
         <text x="142" y="130" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="9" fill="#ECE3D4">dispatch</text>
         <text x="142" y="142" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="9" fill="#ECE3D4">per-hardware</text>
 
-        <!-- Arrow 2→3 -->
+        <!-- Arrow 2 to 3 -->
         <line x1="180" y1="136" x2="198" y2="136" stroke="#C9A45C" stroke-width="1.4" marker-end="url(#sc-arr)"/>
 
         <!-- Node 3: Hardware targets (stacked) -->
@@ -218,7 +218,7 @@
         <!-- parallel label -->
         <text x="238" y="74" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#9A7F4E" font-style="italic">parallel dispatch</text>
 
-        <!-- Arrows hardware→verify -->
+        <!-- Arrows hardware to verify -->
         <line x1="276" y1="93" x2="308" y2="120" stroke="#E8772B" stroke-width="1" stroke-opacity="0.7" marker-end="url(#sc-arr)"/>
         <line x1="276" y1="123" x2="308" y2="132" stroke="#E8772B" stroke-width="1" stroke-opacity="0.9" marker-end="url(#sc-arr)"/>
         <line x1="276" y1="153" x2="308" y2="144" stroke="#E8772B" stroke-width="1" stroke-opacity="0.7" marker-end="url(#sc-arr)"/>
@@ -231,7 +231,7 @@
         <text x="351" y="141" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#B3A890">against reality</text>
         <text x="351" y="151" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#85795F">SLO &lt; 1000ms</text>
 
-        <!-- Arrow 4→split -->
+        <!-- Arrow 4 to split -->
         <line x1="392" y1="136" x2="406" y2="136" stroke="#C9A45C" stroke-width="1.4"/>
 
         <!-- Split fork -->
@@ -258,11 +258,11 @@
         <text x="449" y="207" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#C9A45C">hypothesis</text>
 
         <!-- Bottom label -->
-        <text x="240" y="296" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#85795F">Trigger &rarr; Dispatch &rarr; Hardware &rarr; Verify &rarr; Confirmed or Surfaced</text>
+        <text x="240" y="296" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#85795F">Trigger to Dispatch to Hardware to Verify to Confirmed or Surfaced</text>
       </svg>
     </div>
 
-    <!-- DIAGRAM 2: ARCHITECTURE — Where it lives -->
+    <!-- DIAGRAM 2: ARCHITECTURE: Where it lives -->
     <div class="diag-block">
       <div class="diag-label">Where it lives</div>
       <svg viewBox="0 0 480 310" width="100%" height="auto" style="max-width:480px;display:block" xmlns="http://www.w3.org/2000/svg" aria-label="Architecture diagram: studio-control position in the portfolio">
@@ -286,23 +286,23 @@
           </marker>
         </defs>
 
-        <!-- Intent loop veil — faint background rectangle -->
+        <!-- Intent loop veil: faint background rectangle -->
         <rect x="10" y="14" width="460" height="254" rx="12" fill="none" stroke="#3a2f23" stroke-width="1.5" stroke-dasharray="5,4"/>
-        <text x="26" y="28" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#3a2f23" font-style="italic">Intent loop &mdash; Notice &middot; Spec &middot; Execute &middot; Observe</text>
+        <text x="26" y="28" font-family="Spectral,Georgia,serif" font-size="8.5" fill="#3a2f23" font-style="italic">Intent loop: Notice &middot; Spec &middot; Execute &middot; Observe</text>
 
-        <!-- Intent box — top left (governance) -->
+        <!-- Intent box: top left (governance) -->
         <rect x="24" y="42" width="90" height="46" rx="8" fill="#211a13" stroke="#9A7F4E" stroke-width="1"/>
         <text x="69" y="62" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="11" font-weight="700" fill="#C9A45C">Intent</text>
         <text x="69" y="76" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#85795F">signals · specs</text>
         <text x="69" y="87" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#85795F">decisions</text>
 
-        <!-- Witness box — left mid (observability) -->
+        <!-- Witness box: left mid (observability) -->
         <rect x="24" y="104" width="90" height="46" rx="8" fill="#211a13" stroke="#9A7F4E" stroke-width="1"/>
         <text x="69" y="124" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="11" font-weight="700" fill="#C9A45C">Witness</text>
         <text x="69" y="138" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#85795F">OTLP events</text>
         <text x="69" y="149" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#85795F">JSONL fallback</text>
 
-        <!-- studio-control box — centre -->
+        <!-- studio-control box: centre -->
         <rect x="162" y="72" width="148" height="152" rx="10" fill="url(#ag-sc)" stroke="#E8772B" stroke-width="1.8"/>
         <text x="236" y="100" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="13" font-weight="800" fill="#ECE3D4">studio-control</text>
         <line x1="180" y1="109" x2="292" y2="109" stroke="#3a2f23" stroke-width="0.8"/>
@@ -318,7 +318,7 @@
         <rect x="177" y="208" width="118" height="13" rx="4" fill="rgba(201,164,92,0.08)" stroke="#3a2f23" stroke-width="0.8"/>
         <text x="236" y="218" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#85795F" font-style="italic">only portfolio product crossing hardware line</text>
 
-        <!-- Physical world box — right -->
+        <!-- Physical world box: right -->
         <rect x="358" y="60" width="98" height="166" rx="10" fill="url(#ag-hw)" stroke="#C9A45C" stroke-width="1.3"/>
         <text x="407" y="82" text-anchor="middle" font-family="'Playfair Display',Georgia,serif" font-size="11" font-weight="700" fill="#C9A45C">Hardware</text>
         <line x1="372" y1="90" x2="444" y2="90" stroke="#3a2f23" stroke-width="0.8"/>
@@ -330,19 +330,19 @@
         <!-- open-loop footnote -->
         <text x="407" y="212" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#85795F" font-style="italic">* open-loop</text>
 
-        <!-- Intent → studio-control arrow (governs) -->
+        <!-- Intent to studio-control arrow (governs) -->
         <line x1="114" y1="65" x2="160" y2="110" stroke="#9A7F4E" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#aarr-sc)"/>
         <text x="132" y="82" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#9A7F4E" font-style="italic">governs</text>
 
-        <!-- Witness → studio-control arrow (observes) -->
+        <!-- Witness to studio-control arrow (observes) -->
         <line x1="114" y1="127" x2="160" y2="140" stroke="#9A7F4E" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#aarr-sc)"/>
         <text x="132" y="138" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#9A7F4E" font-style="italic">observes</text>
 
-        <!-- studio-control → Hardware arrow (commands) -->
+        <!-- studio-control to Hardware arrow (commands) -->
         <line x1="310" y1="148" x2="356" y2="148" stroke="#E8772B" stroke-width="1.6" marker-end="url(#aarr-sc-out)"/>
         <text x="333" y="142" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7.5" fill="#9A7F4E" font-style="italic">commands</text>
 
-        <!-- Hardware → studio-control feedback arrow (ACK) -->
+        <!-- Hardware to studio-control feedback arrow (ACK) -->
         <path d="M356,162 Q336,178 310,165" fill="none" stroke="#7E8A98" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#aarr-sc)"/>
         <text x="330" y="180" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="7" fill="#7E8A98" font-style="italic">ACK / gap</text>
 
@@ -350,7 +350,7 @@
         <path d="M460,40 Q470,149 460,258" fill="none" stroke="#3a2f23" stroke-width="1" stroke-dasharray="4,5" marker-end="url(#aarr-sc)"/>
 
         <!-- Bottom label -->
-        <text x="237" y="296" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#85795F">Intent (governs) &middot; Witness (observes) &middot; studio-control &rarr; Hardware (ACK or gap)</text>
+        <text x="237" y="296" text-anchor="middle" font-family="Spectral,Georgia,serif" font-size="8" fill="#85795F">Intent (governs) &middot; Witness (observes) &middot; studio-control to Hardware (ACK or gap)</text>
       </svg>
     </div>
 
@@ -360,27 +360,27 @@
 <section id="veil" class="veil-section"><div class="wrap">
   <div class="kicker">Behind the veil</div>
   <h2>How studio-control was forged.</h2>
-  <p class="body">studio-control wasn't assembled from tutorials. It was built under the same governance machinery that governs every product in this portfolio &mdash; with defensive contracts for every vendor, a ratified SLO for the mute-mismatch case, and an operating model that treats a Stream Deck button press as an observable event, not a fire-and-forget. Slip behind the veil to see what produced it and the stack it sits in.</p>
+  <p class="body">studio-control wasn't assembled from tutorials. It was built under the same governance machinery that governs every product in this portfolio, with defensive contracts for every vendor, a ratified SLO for the mute-mismatch case, and an operating model that treats a Stream Deck button press as an observable event, not a fire-and-forget. Slip behind the veil to see what produced it and the stack it sits in.</p>
   <div class="veil-line"></div>
   <div class="veil-grid">
     <div class="veil-card">
       <div class="role">The operating model</div>
       <h3>Intent</h3>
-      <p>studio-control carries its own <code>.intent/</code> governance &mdash; signals, specs, decisions, defensive contracts, all traced in git. The physical-world boundary vocabulary is a ratified spec; the mute-mismatch SLO is enforced by the instrumentation. This is the only portfolio product that crosses the hardware line.</p>
-      <a class="enter" href="https://theparlor.github.io/intent-site/">See the operating model &rarr;</a>
+      <p>studio-control carries its own <code>.intent/</code> governance: signals, specs, decisions, defensive contracts: all traced in git. The physical-world boundary vocabulary is a ratified spec; the mute-mismatch SLO is enforced by the instrumentation. This is the only portfolio product that crosses the hardware line.</p>
+      <a class="enter" href="https://theparlor.github.io/intent-site/">See the operating model</a>
     </div>
     <div class="veil-card">
       <div class="role">The overhead view</div>
       <h3>Parallax</h3>
-      <p>studio-control occupies the <em>physical-world boundary</em> position in the portfolio &mdash; the only implement that speaks to hardware. It sits at the edge of the coherence stack where software hypotheses meet the facts of the rack. See where it lands among the other implements.</p>
-      <a class="enter" href="https://theparlor.github.io/parallax-site/">See the overhead view &rarr;</a>
+      <p>studio-control occupies the <em>physical-world boundary</em> position in the portfolio, the only implement that speaks to hardware. It sits at the edge of the coherence stack where software hypotheses meet the facts of the rack. See where it lands among the other implements.</p>
+      <a class="enter" href="https://theparlor.github.io/parallax-site/">See the overhead view</a>
     </div>
   </div>
 </div></section>
 
 <footer><div class="wrap">
-  <div><span class="mark" style="color:var(--brass)">&#9874;</span> The Parlor / studio-control &mdash; <strong style="color:var(--steel-light)">v0, forged in the open</strong>. <a href="https://theparlor.github.io/portfolio-site/" style="color:var(--steel-light)">&larr; All products</a></div>
-  <div class="prov">Rendered in the Foundry type system (product plane). Source &amp; governance: <code style="color:var(--steel-deep)">Core/products/studio-control/</code> (behind the veil). noindex &middot; not public &middot; built to be challenged.</div>
+  <div><span class="mark" style="color:var(--brass)">&#9874;</span> The Parlor / studio-control: <strong style="color:var(--steel-light)">v0, forged in the open</strong>. <a href="https://theparlor.github.io/portfolio-site/" style="color:var(--steel-light)">All products</a></div>
+  <div class="prov">Rendered in the Foundry type system (product plane). Source &amp; governance: <code style="color:var(--steel-deep)">Core/products/studio-control/</code> (behind the veil). Working name: studio-control &middot; unlisted, not private &middot; built to be challenged.</div>
 </div></footer>
 
 </body>
